@@ -776,6 +776,57 @@
     font-weight: 500;
   }
 
+  .footer-credit {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px dashed rgba(182, 134, 44, 0.4);
+    display: flex;
+    justify-content: center;
+  }
+  .credit-badge-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 22px;
+    border-radius: 30px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(247, 231, 190, 0.75));
+    border: 1.2px solid var(--gold);
+    color: var(--ink);
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(182, 134, 44, 0.16);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+  .credit-badge-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(145deg, #ffffff, #f5e1b8);
+    border-color: var(--gold-dark);
+    box-shadow: 0 6px 22px rgba(182, 134, 44, 0.32);
+  }
+  .credit-text {
+    font-family: 'Marcellus', serif;
+    font-size: 0.88rem;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .credit-text strong {
+    font-weight: 700;
+    color: var(--gold-dark);
+  }
+  .credit-wa-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #25d366;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.4);
+    flex-shrink: 0;
+  }
+
   /* Toast Notification */
   .toast {
     position: fixed;
@@ -1360,6 +1411,19 @@
     <footer>
       <div class="footer-ur urdu">آپ کی موجودگی ہمارے لیے باعثِ عزت و مسرت ہوگی</div>
       <div class="footer-en">We look forward to celebrating with you</div>
+
+      <div class="footer-credit">
+        <a href="https://wa.me/919579886625?text=Hello%20Nawaz%20Khan" target="_blank" rel="noopener" class="credit-badge-btn" title="Contact Nawaz Khan on WhatsApp">
+          <span class="credit-text">
+            <strong>Made By Nawaz Khan</strong> &bull; Contact: <strong>9579886625</strong>
+          </span>
+          <span class="credit-wa-icon" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.63C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 6.46 17.5 2 12.04 2M12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.44 19.65L5.27 16.62L5.07 16.31C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.68 12.04 3.68C16.58 3.68 20.27 7.37 20.27 11.91C20.27 16.45 16.58 20.15 12.04 20.15M16.55 14.39C16.3 14.26 15.08 13.66 14.85 13.58C14.62 13.5 14.46 13.45 14.3 13.7C14.13 13.95 13.67 14.5 13.53 14.65C13.39 14.81 13.25 14.83 13 14.71C12.75 14.58 11.96 14.32 11.02 13.49C10.29 12.84 9.8 12.04 9.66 11.79C9.51 11.54 9.64 11.4 9.77 11.28C9.88 11.16 10.02 10.99 10.15 10.84C10.28 10.69 10.32 10.58 10.4 10.42C10.48 10.25 10.44 10.11 10.38 9.99C10.32 9.86 9.83 8.66 9.62 8.17C9.42 7.69 9.22 7.75 9.07 7.74H8.6C8.44 7.74 8.18 7.8 7.95 8.05C7.72 8.3 7.08 8.9 7.08 10.12C7.08 11.34 7.97 12.51 8.09 12.67C8.22 12.84 9.83 15.32 12.3 16.38C12.89 16.63 13.34 16.78 13.7 16.9C14.29 17.09 14.83 17.06 15.26 17C15.74 16.93 16.74 16.4 16.95 15.81C17.15 15.22 17.15 14.72 17.09 14.62C17.03 14.5 16.8 14.43 16.55 14.39Z"/>
+            </svg>
+          </span>
+        </a>
+      </div>
     </footer>
 
   </div>
