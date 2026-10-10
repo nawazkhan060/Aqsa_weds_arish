@@ -143,7 +143,7 @@
     pointer-events: none;
   }
 
-  /* ---------- TOP VIDEO SHOWCASE SECTION (FULL VIDEO DISPLAY) ---------- */
+  /* ---------- TOP VIDEO SHOWCASE SECTION (SEAMLESS AUTOPLAY LOOP) ---------- */
   .video-showcase-section {
     position: relative;
     margin-bottom: 28px;
@@ -212,7 +212,7 @@
       0 0 38px rgba(201, 154, 60, 0.4);
   }
 
-  /* Inner Container tailored to the natural 714 x 1278 (9:16) video dimensions */
+  /* Inner Container tailored to natural 714 x 1278 (9:16) video dimensions */
   .video-arch-inner {
     position: relative;
     width: 100%;
@@ -247,83 +247,16 @@
     }
   }
 
-  /* Full Video Player - NO CROPPING */
+  /* Full Video Player - NO CONTROLS, CONTINUOUS AUTOPLAY LOOP */
   .video-player {
     width: 100%;
     height: 100%;
     object-fit: contain;
     display: block;
-    cursor: pointer;
     background: #000;
-  }
-
-  /* Video Floating Control Pills */
-  .video-controls-overlay {
-    position: absolute;
-    bottom: 14px;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    z-index: 6;
-    padding: 0 12px;
-  }
-
-  .video-pill-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 7px 14px;
-    background: rgba(22, 16, 8, 0.78);
-    border: 1px solid rgba(247, 231, 190, 0.6);
-    border-radius: 20px;
-    color: #fff;
-    font-family: 'Marcellus', serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    cursor: pointer;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
-    transition: all 0.25s ease;
-  }
-  .video-pill-btn:hover {
-    background: rgba(182, 134, 44, 0.95);
-    border-color: #fff;
-    color: #fff;
-    transform: scale(1.04);
-  }
-  .video-pill-btn svg {
-    flex-shrink: 0;
-  }
-
-  /* Play/Pause Center Pulse Indicator */
-  .video-center-indicator {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
-    width: 62px;
-    height: 62px;
-    border-radius: 50%;
-    background: rgba(26, 17, 7, 0.8);
-    border: 1.5px solid var(--gold-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 5;
-    box-shadow: 0 0 24px rgba(0,0,0,0.6);
-  }
-  .video-center-indicator.visible {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+    user-select: none;
+    -webkit-user-select: none;
   }
 
   /* ---------- Royal Ornamental Dividers ---------- */
@@ -1173,7 +1106,7 @@
     </svg>
     <div class="frame-inner-border"></div>
 
-    <!-- ================= 1. ROYAL TOP VIDEO SHOWCASE (FULL 9:16 VIDEO) ================= -->
+    <!-- ================= 1. ROYAL TOP VIDEO SHOWCASE (CONTINUOUS AUTOPLAY LOOP, NO CONTROLS) ================= -->
     <section class="video-showcase-section">
       <div class="video-badge-pill">
         <span class="sparkle-icon">✦</span>
@@ -1200,51 +1133,13 @@
             playsinline
             webkit-playsinline
             preload="auto"
+            disablepictureinpicture
+            controlslist="nodownload nofullscreen noremoteplayback"
             aria-label="Baraat Video of Aqsa &amp; Aarish"
           >
             <source src="aqsa.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-
-          <!-- Center Click Feedback Indicator -->
-          <div id="videoCenterIndicator" class="video-center-indicator">
-            <svg id="indicatorIconPlay" viewBox="0 0 24 24" width="32" height="32" fill="currentColor" style="display:none;">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-            <svg id="indicatorIconPause" viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-            </svg>
-          </div>
-
-          <!-- Video Floating Controls Bar -->
-          <div class="video-controls-overlay">
-            <button id="videoSoundBtn" class="video-pill-btn" aria-label="Toggle Video Sound">
-              <svg id="videoSoundIconMuted" viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
-                <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27l4.73 4.73H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
-              </svg>
-              <svg id="videoSoundIconUnmuted" viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="display:none;">
-                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-              </svg>
-              <span id="videoSoundText">Video Sound</span>
-            </button>
-
-            <button id="videoPlayBtn" class="video-pill-btn" aria-label="Play or Pause Video">
-              <svg id="videoPlayIconPause" viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
-                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-              </svg>
-              <svg id="videoPlayIconPlay" viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="display:none;">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-              <span id="videoPlayText">Pause</span>
-            </button>
-
-            <button id="videoFullscreenBtn" class="video-pill-btn" aria-label="Fullscreen Video" title="Fullscreen">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
-                <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
-              </svg>
-              <span>Full</span>
-            </button>
-          </div>
         </div>
       </div>
     </section>
@@ -1542,6 +1437,7 @@
         console.warn('Playback gesture handled:', err);
       });
     }
+    playTopVideo();
     dismissLoader();
   }
 
@@ -1555,10 +1451,8 @@
     updateMusicIcons(true);
   });
   audio.addEventListener('pause', function() {
-    if (!videoUnmuted) {
-      isAudioPlaying = false;
-      updateMusicIcons(false);
-    }
+    isAudioPlaying = false;
+    updateMusicIcons(false);
   });
 
   // Attempt autoplay on load
@@ -1600,11 +1494,12 @@
         dismissLoader();
       }
     }
+    playTopVideo();
   }, 3000);
 
   // Global unlock for audio on first tap
   function unlockOnGesture() {
-    if (audio.paused && !videoUnmuted) {
+    if (audio.paused) {
       audio.volume = 0.4;
       audio.play().then(function() {
         isAudioPlaying = true;
@@ -1612,6 +1507,7 @@
         dismissLoader();
       }).catch(function() {});
     }
+    playTopVideo();
   }
   window.addEventListener('click', unlockOnGesture, { passive: true });
   window.addEventListener('touchstart', unlockOnGesture, { passive: true });
@@ -1634,114 +1530,57 @@
   });
 
   // ==========================================
-  // 3. TOP VIDEO (aqsa.mp4) CONTROLS & LOGIC
+  // 3. TOP VIDEO (aqsa.mp4) CONTINUOUS AUTOPLAY ON LOOP
   // ==========================================
   var topVideo = document.getElementById('topVideo');
-  var videoSoundBtn = document.getElementById('videoSoundBtn');
-  var videoSoundText = document.getElementById('videoSoundText');
-  var videoSoundIconMuted = document.getElementById('videoSoundIconMuted');
-  var videoSoundIconUnmuted = document.getElementById('videoSoundIconUnmuted');
-  var videoPlayBtn = document.getElementById('videoPlayBtn');
-  var videoPlayText = document.getElementById('videoPlayText');
-  var videoPlayIconPlay = document.getElementById('videoPlayIconPlay');
-  var videoPlayIconPause = document.getElementById('videoPlayIconPause');
-  var videoFullscreenBtn = document.getElementById('videoFullscreenBtn');
-  var videoCenterIndicator = document.getElementById('videoCenterIndicator');
-  var indicatorIconPlay = document.getElementById('indicatorIconPlay');
-  var indicatorIconPause = document.getElementById('indicatorIconPause');
 
-  var videoUnmuted = false;
-
-  // Toggle video mute/unmute
-  function toggleVideoSound() {
-    if (topVideo.muted) {
-      topVideo.muted = false;
-      videoUnmuted = true;
-      videoSoundText.textContent = 'Unmuted';
-      videoSoundIconMuted.style.display = 'none';
-      videoSoundIconUnmuted.style.display = 'block';
-      // Gently pause background music while video audio plays
-      if (!audio.paused) {
-        audio.pause();
-      }
-      showToast('Video audio enabled 🔊');
-    } else {
-      topVideo.muted = true;
-      videoUnmuted = false;
-      videoSoundText.textContent = 'Muted';
-      videoSoundIconMuted.style.display = 'block';
-      videoSoundIconUnmuted.style.display = 'none';
-      // Resume background music
-      audio.play().catch(function() {});
-      showToast('Video muted 🔇');
+  function playTopVideo() {
+    if (!topVideo) return;
+    topVideo.muted = true;
+    topVideo.defaultMuted = true;
+    var p = topVideo.play();
+    if (p !== undefined) {
+      p.catch(function() {
+        setTimeout(function() {
+          if (topVideo.paused) {
+            topVideo.play().catch(function() {});
+          }
+        }, 150);
+      });
     }
   }
 
-  videoSoundBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    toggleVideoSound();
-  });
+  if (topVideo) {
+    topVideo.muted = true;
+    topVideo.defaultMuted = true;
 
-  // Toggle video play/pause
-  function flashIndicator(isPaused) {
-    if (isPaused) {
-      indicatorIconPlay.style.display = 'block';
-      indicatorIconPause.style.display = 'none';
-    } else {
-      indicatorIconPlay.style.display = 'none';
-      indicatorIconPause.style.display = 'block';
-    }
-    videoCenterIndicator.classList.add('visible');
-    setTimeout(function() {
-      videoCenterIndicator.classList.remove('visible');
-    }, 550);
-  }
+    // Start video playback immediately
+    playTopVideo();
 
-  function toggleVideoPlay() {
-    if (topVideo.paused) {
-      topVideo.play();
-      videoPlayText.textContent = 'Pause';
-      videoPlayIconPause.style.display = 'block';
-      videoPlayIconPlay.style.display = 'none';
-      flashIndicator(false);
-    } else {
-      topVideo.pause();
-      videoPlayText.textContent = 'Play';
-      videoPlayIconPause.style.display = 'none';
-      videoPlayIconPlay.style.display = 'block';
-      flashIndicator(true);
-    }
-  }
+    // Continuous loop without pause
+    topVideo.addEventListener('ended', function() {
+      topVideo.currentTime = 0;
+      playTopVideo();
+    });
 
-  videoPlayBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    toggleVideoPlay();
-  });
-
-  // Fullscreen support
-  if (videoFullscreenBtn) {
-    videoFullscreenBtn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      if (topVideo.requestFullscreen) {
-        topVideo.requestFullscreen();
-      } else if (topVideo.webkitRequestFullscreen) {
-        topVideo.webkitRequestFullscreen();
-      } else if (topVideo.webkitEnterFullscreen) {
-        topVideo.webkitEnterFullscreen();
+    // Auto-resume if pause event fired while page is visible
+    topVideo.addEventListener('pause', function() {
+      if (!document.hidden) {
+        setTimeout(playTopVideo, 100);
       }
     });
+
+    // Resume when browser tab or screen becomes visible
+    document.addEventListener('visibilitychange', function() {
+      if (!document.hidden) {
+        playTopVideo();
+      }
+    });
+
+    // Handle canplay / loadeddata
+    topVideo.addEventListener('loadeddata', playTopVideo);
+    topVideo.addEventListener('canplay', playTopVideo);
   }
-
-  // Tap video itself to play/pause
-  topVideo.addEventListener('click', function() {
-    toggleVideoPlay();
-  });
-
-  // Auto-loop resilience for video
-  topVideo.addEventListener('ended', function() {
-    topVideo.currentTime = 0;
-    topVideo.play().catch(function() {});
-  });
 
   // ==========================================
   // 4. FALLING PETALS SHOWER GENERATOR
